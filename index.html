@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ร่วมลงนาม</title>
+  <title>ร่วมลงนามถวายพระพร</title>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- SweetAlert2 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
   <style>
-    /* ใช้ฟอนต์ Sarabun สำหรับ body */
     body {
       font-family: 'Sarabun', sans-serif;
       background-color: #f5f5dc; /* สีครีม */
@@ -20,10 +19,11 @@
 
     .banner {
       display: flex;
+      flex-direction: column; /* เรียงในแนวตั้งสำหรับหน้าจอเล็ก */
       justify-content: center; /* จัดตำแหน่งกลาง */
       align-items: center; /* จัดตำแหน่งกลางในแนวตั้ง */
       height: 100vh; /* ทำให้แบนเนอร์มีความสูงเต็มหน้าจอ */
-      padding: 0;
+      padding: 10px;
       margin-bottom: 20px;
       border: 2px solid #cab218; /* กรอบแบนเนอร์ */
       border-radius: 8px; /* มุมโค้ง */
@@ -31,19 +31,20 @@
     }
 
     .banner img {
-      width: 48%; /* รูปขนาด 48% ของพื้นที่ */
-      max-height: 80vh; /* ให้รูปมีความสูงไม่เกิน 80% ของหน้าจอ */
+      width: 100%; /* รูปภาพขนาด 100% สำหรับหน้าจอเล็ก */
+      max-height: 60vh; /* ลดความสูงสูงสุดของรูปภาพ */
       object-fit: contain; /* ให้รูปแสดงทั้งหมดไม่ถูกตัด */
       border-radius: 8px; /* ให้มุมโค้งตามแบนเนอร์ */
     }
 
     .form-container {
-      width: 48%; /* ฟอร์มขนาด 48% ของพื้นที่ */
+      width: 100%; /* ฟอร์มขนาดเต็มหน้าจอ */
       padding: 20px;
       background-color: #fff; /* พื้นหลังของฟอร์ม */
       border-radius: 8px;
       border: 1px solid #ccc; /* กรอบฟอร์ม */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+      margin-top: 20px;
     }
 
     h3 {
@@ -68,6 +69,20 @@
       margin-top: 20px;
       color: #6c757d;
     }
+
+    @media (min-width: 768px) {
+      .banner {
+        flex-direction: row; /* เรียงในแนวนอนสำหรับหน้าจอขนาดใหญ่ */
+      }
+
+      .form-container {
+        width: 48%; /* ฟอร์มกลับมาเป็น 48% สำหรับหน้าจอขนาดใหญ่ */
+      }
+
+      .banner img {
+        width: 48%; /* รูปภาพกลับมาเป็น 48% สำหรับหน้าจอใหญ่ */
+      }
+    }
   </style>
 </head>
 <body>
@@ -75,7 +90,7 @@
   <div class="banner">
     <img src="1.jpg" alt="Banner Image"> <!-- เพิ่มรูปภาพที่นี่ -->
     <div class="form-container">
-      <h3 class="text-center">ฟอร์มบันทึกรายชื่อผู้ลงนาม</h3>
+      <h3 class="text-center">ลงนามถวายพระพร</h3>
       <form method="post" autocomplete="off" name="hello-sheet">
         <div class="form-group">
           <label for="name">ชื่อ-สกุล</label>
